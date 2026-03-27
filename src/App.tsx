@@ -2,18 +2,24 @@ import './App.css';
 import { useVibeDojo } from './hooks/useVibeDojo';
 import GeneratorCard from './components/GeneratorCard';
 import { FavoritesList } from './components/FavoritesList';
-import { ChallengeCounter } from './components/ChallengeCounter';
+import { DeclarationModal } from './components/DeclarationModal';
 
 function App() {
   const {
     currentTopic,
     isAnimating,
     favorites,
-    challengeCount,
     generate,
+    selectTopic,
     isFavorited,
     toggleFavorite,
     challenge,
+    isModalOpen,
+    declarationText,
+    setDeclarationText,
+    copied,
+    copyDeclaration,
+    closeModal,
   } = useVibeDojo();
 
   return (
@@ -21,7 +27,6 @@ function App() {
       <header className="app-header">
         <h1 className="app-title">VIBE DOJO</h1>
         <p className="app-tagline">バイブコーディングのお題、即出しします。</p>
-        <ChallengeCounter count={challengeCount} />
       </header>
 
       <main className="app-main">
@@ -31,13 +36,14 @@ function App() {
           isFavorited={isFavorited(currentTopic)}
           onGenerate={generate}
           onToggleFavorite={() => toggleFavorite(currentTopic)}
-          onChallenge={challenge}
+          onChallenge={() => challenge(currentTopic)}
         />
       </main>
 
       <aside className="app-aside">
         <FavoritesList
           favorites={favorites}
+          onSelect={selectTopic}
           onRemove={(id) => {
             const topic = favorites.find((f) => f.id === id);
             if (topic) toggleFavorite(topic);
@@ -48,6 +54,16 @@ function App() {
       <footer className="app-footer">
         <p>Made with Claude Code × Goodpatch</p>
       </footer>
+
+      {isModalOpen && (
+        <DeclarationModal
+          text={declarationText}
+          onTextChange={setDeclarationText}
+          onCopy={copyDeclaration}
+          onClose={closeModal}
+          copied={copied}
+        />
+      )}
     </div>
   );
 }

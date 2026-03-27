@@ -310,6 +310,32 @@ details[open] .favorites-summary::after {
   flex: 1;
 }
 
+.favorite-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.favorite-item__select {
+  background: var(--vibe-primary-bg);
+  border: 1px solid var(--vibe-primary-border);
+  color: var(--vibe-primary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  font-family: var(--sans);
+
+  &:hover {
+    background: var(--vibe-primary);
+    color: #fff;
+  }
+}
+
 .favorite-item__remove {
   background: none;
   border: none;
@@ -318,12 +344,106 @@ details[open] .favorites-summary::after {
   font-size: 16px;
   padding: 4px 8px;
   border-radius: 6px;
-  flex-shrink: 0;
-  opacity: 0.5;
+  opacity: 0.4;
   transition: opacity 0.15s, color 0.15s;
 
   &:hover {
     opacity: 1;
     color: var(--vibe-primary);
   }
+}
+
+/* ===== DeclarationModal ===== */
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 520px;
+  padding: 28px;
+  animation: modalIn 0.2s ease forwards;
+  box-sizing: border-box;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+
+  &:hover { opacity: 1; }
+}
+
+.modal-description {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.modal-textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-h);
+  background: var(--code-bg);
+  resize: vertical;
+  font-family: var(--sans);
+  box-sizing: border-box;
+  margin-bottom: 16px;
+
+  &:focus {
+    outline: 2px solid var(--vibe-primary);
+    outline-offset: 0;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-copy-btn {
+  background: var(--vibe-primary);
+  color: #fff;
 }
