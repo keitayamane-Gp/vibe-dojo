@@ -10,7 +10,6 @@ function App() {
     isAnimating,
     favorites,
     generate,
-    selectTopic,
     isFavorited,
     toggleFavorite,
     challenge,
@@ -43,7 +42,7 @@ function App() {
       <aside className="app-aside">
         <FavoritesList
           favorites={favorites}
-          onSelect={selectTopic}
+          onChallenge={challenge}
           onRemove={(id) => {
             const topic = favorites.find((f) => f.id === id);
             if (topic) toggleFavorite(topic);

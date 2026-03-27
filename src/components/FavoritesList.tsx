@@ -2,11 +2,11 @@ import type { FavoriteTopic, Topic } from '../types';
 
 interface FavoritesListProps {
   favorites: FavoriteTopic[];
-  onSelect: (topic: Topic) => void;
+  onChallenge: (topic: Topic) => void;
   onRemove: (id: string) => void;
 }
 
-export function FavoritesList({ favorites, onSelect, onRemove }: FavoritesListProps) {
+export function FavoritesList({ favorites, onChallenge, onRemove }: FavoritesListProps) {
   return (
     <div className="favorites-panel">
       <details>
@@ -23,10 +23,10 @@ export function FavoritesList({ favorites, onSelect, onRemove }: FavoritesListPr
                 <div className="favorite-item__actions">
                   <button
                     className="favorite-item__select"
-                    onClick={() => onSelect(fav)}
-                    aria-label={`${fav.target}のお題を使う`}
+                    onClick={() => onChallenge(fav)}
+                    aria-label={`${fav.target}のお題で宣言する`}
                   >
-                    このお題にする
+                    🚀 このお題で作る！
                   </button>
                   <button
                     className="favorite-item__remove"

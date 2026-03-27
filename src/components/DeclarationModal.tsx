@@ -41,7 +41,7 @@ export function DeclarationModal({
         </div>
 
         <p className="modal-description">
-          このままコピーしてSlackに貼り付けてください。自由に編集できます。
+          このままコピーしてSlackなどで共有してみてね！（自由に編集可能）
         </p>
 
         <textarea
