@@ -11,6 +11,14 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  /* VIBE DOJO カスタム変数 */
+  --vibe-primary: #ff5c35;
+  --vibe-primary-bg: rgba(255, 92, 53, 0.1);
+  --vibe-primary-border: rgba(255, 92, 53, 0.4);
+  --card-bg: #ffffff;
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --card-radius: 16px;
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
@@ -43,6 +51,13 @@
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+    /* VIBE DOJO ダークモード */
+    --vibe-primary: #ff7a5a;
+    --vibe-primary-bg: rgba(255, 122, 90, 0.12);
+    --vibe-primary-border: rgba(255, 122, 90, 0.4);
+    --card-bg: #1f2028;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
   #social .button-icon {
